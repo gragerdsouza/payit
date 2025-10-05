@@ -1,0 +1,23 @@
+{
+  "name": "vagrant/payit-php-client",
+  "description": "PHP client for Payit (NatWest) API",
+  "require": {
+    "php": ">=7.4",
+    "guzzlehttp/guzzle": "^7.0",
+    "vlucas/phpdotenv": "^5.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Payit\\": "src/"
+    }
+  },
+  "authors": [
+        {
+            "name": "Grager D'souza",
+            "email": "gragerdsouza@gmail.com"
+        }
+    ],
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.88"
+  }
+}
