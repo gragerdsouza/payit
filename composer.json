@@ -1,6 +1,7 @@
 {
   "name": "gragerdsouza/payit-php-client",
   "description": "PHP client for Payit (NatWest) API",
+  "license": "MIT",
   "require": {
     "php": ">=7.4",
     "guzzlehttp/guzzle": "^7.0",
@@ -12,11 +13,11 @@
     }
   },
   "authors": [
-        {
-            "name": "Grager D'souza",
-            "email": "gragerdsouza@gmail.com"
-        }
-    ],
+    {
+      "name": "Grager D'souza",
+      "email": "gragerdsouza@gmail.com"
+    }
+  ],
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.88"
   }
