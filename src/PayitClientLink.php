@@ -4,6 +4,8 @@ namespace Payit;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use Payit\PayitEnvironment;
 
 /**
@@ -92,7 +94,6 @@ class PayitClientLink
                     'client_id' => $this->clientId,
                     'client_secret' => $this->clientSecret,
                     'resource' => $this->resource,
-                    //'scope' => 'https://lpapi.natwestpayit.com/.default' // <-- important
                 ]
             ]);
         } catch (GuzzleException $e) {
@@ -133,7 +134,13 @@ class PayitClientLink
         $options['headers']['x-api-version'] = "3";
         $options['headers']['x-transaction-id'] = uniqid("txn_");
 
-        $resp = $this->http->request($method, $this->baseUrl . $uri, $options);
+        try {
+			$resp = $this->http->request($method, $this->baseUrl . $uri, $options);
+		} catch (ServerException|ClientException $e) {
+			echo "Response body:\n" . $e->getResponse()->getBody()->getContents();
+			throw $e;
+		}
+
         return json_decode((string)$resp->getBody(), true);
     }
 
