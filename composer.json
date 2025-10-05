@@ -1,5 +1,5 @@
 {
-  "name": "vagrant/payit-php-client",
+  "name": "gragerdsouza/payit-php-client",
   "description": "PHP client for Payit (NatWest) API",
   "require": {
     "php": ">=7.4",
